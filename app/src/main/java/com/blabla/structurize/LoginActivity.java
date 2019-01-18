@@ -14,10 +14,8 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
-
     private EditText editTextEmail;
     private EditText editTextPassword;
     private FirebaseAuth mAuth;
@@ -32,7 +30,6 @@ public class LoginActivity extends AppCompatActivity {
 
     private void initComponents() {
         mAuth = FirebaseAuth.getInstance();
-
         initText();
         initButton();
 
@@ -67,7 +64,6 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            FirebaseUser user = mAuth.getCurrentUser();
                             Intent intentMain = new Intent(LoginActivity.this,MainActivity.class);
                             startActivity(intentMain);
                             finish();

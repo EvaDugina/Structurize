@@ -1,8 +1,6 @@
 package com.blabla.structurize;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
@@ -117,7 +115,6 @@ public class SignUpActivity extends AppCompatActivity {
                     Toast.makeText(SignUpActivity.this, "Fill the pools correctly.", Toast.LENGTH_SHORT).show();
                     return ;
                 }
-
                 createUser(email,password);
             }
         });
@@ -178,8 +175,5 @@ public class SignUpActivity extends AppCompatActivity {
                     textInputLayoutPassword.setErrorEnabled(false);
             }
         });
-
     }
-
-
 }
