@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.blabla.structurize">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -34,6 +36,14 @@
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ChangeDataActivity"
+            android:label="@string/title_activity_change_data"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ChackingEmailPassword_ChangingData"
+            android:label="@string/title_activity_chacking_email_password__changing_data"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
