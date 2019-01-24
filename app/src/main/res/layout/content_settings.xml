@@ -9,6 +9,25 @@
     tools:context="com.blabla.structurize.SettingsActivity"
     tools:showIn="@layout/activity_settings">
 
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/content_settings_profile_image"
+        android:layout_width="76dp"
+        android:layout_height="76dp"
+        android:layout_marginTop="25dp"
+        android:src="@mipmap/ic_launcher" />
+
+    <Button
+        android:id="@+id/content_settings_button_change_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CHANGE DATA"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/colorTextButtonRegistration"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/colorBackBack"/>
+
     <Button
         android:id="@+id/content_settings_button_logout"
         android:layout_width="match_parent"
@@ -20,5 +39,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="20dp"
         android:textColor="@color/colorBackBack"/>
+
+
 
 </LinearLayout>
