@@ -49,13 +49,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void initNavigationPanel() {
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        Log.d("&&&&&&&&&&&&", "initNavigationPanel: "+currentUser);
 
         TextView textViewLogin = navigationView.getHeaderView(0).findViewById(R.id.nav_header_main_text_view_login);
         TextView textViewMail = navigationView.getHeaderView(0).findViewById(R.id.nav_header_main_text_view_email);
 
-        Log.d("getDisplayName", "initNavigationPanel: "+currentUser.getDisplayName());
-        textViewLogin.setText(/*currentUser.getDisplayName()*/"123");
+        textViewLogin.setText(currentUser.getDisplayName());
         textViewMail.setText(currentUser.getEmail());
 
     }

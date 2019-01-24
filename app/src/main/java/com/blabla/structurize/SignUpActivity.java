@@ -53,7 +53,7 @@ public class SignUpActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             FirebaseUser user = mAuth.getCurrentUser();
                             UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
-                                    .setDisplayName(editTextLogin.toString())
+                                    .setDisplayName(editTextLogin.getText().toString())
                                     .build();
 
                             user.updateProfile(profileUpdates)
@@ -61,15 +61,12 @@ public class SignUpActivity extends AppCompatActivity {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if (task.isSuccessful()) {
-                                                Log.d("===============", "User profile updated.123" );
+                                                Intent intentSignUp = new Intent(SignUpActivity.this,CheckActivity.class);
+                                                startActivity(intentSignUp);
+                                                finish();
                                             }
                                         }
                                     });
-                            Toast.makeText(SignUpActivity.this, "SUCCESFUL"+user, Toast.LENGTH_SHORT).show();
-                            Intent intentSignUp = new Intent(SignUpActivity.this,CheckActivity.class);
-                            startActivity(intentSignUp);
-                            finish();
-
                         }
                     }
                 })
