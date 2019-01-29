@@ -38,12 +38,12 @@
             android:label="@string/title_activity_settings"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ChangeDataActivity"
+            android:name=".ChangePasswordActivity"
             android:label="@string/title_activity_change_data"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ChackingEmailPassword_ChangingData"
-            android:label="@string/title_activity_chacking_email_password__changing_data"
+            android:name=".ChangeEmailActivity"
+            android:label="@string/title_activity_change_email"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

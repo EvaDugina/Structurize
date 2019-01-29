@@ -9,4 +9,9 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="title_activity_sign_up">SignUpActivity</string>
     <string name="title_activity_settings">SettingsActivity</string>
+    <string name="title_activity_change_data">ChangeDataActivity</string>
+    <string name="title_activity_chacking_email_password__changing_data">
+        ChackingEmailPassword_ChangingData
+    </string>
+    <string name="title_activity_change_email">ChangeEmailActivity</string>
 </resources>
