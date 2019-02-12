@@ -1,96 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.blabla.structurize.SettingsActivity"
-    tools:showIn="@layout/activity_settings"
-    android:background="@color/colorTextButtonRegistration">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-
-    <LinearLayout
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:orientation="horizontal"
-        android:background="@color/colorBack">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/colorTextButtonRegistration">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/content_settings_profile_image"
-            android:layout_marginTop="7.5dp"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginLeft="10dp"
-            android:src="@mipmap/ic_launcher" />
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:showDividers="middle"
+                android:divider="@drawable/layout_separator">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@color/colorBack"
+                    android:padding="15dp">
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/content_settings_profile_image"
+                        android:layout_marginTop="5dp"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:layout_marginLeft="10dp"
+                        android:src="@mipmap/ic_launcher" />
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="26dp">
+                        <TextView
+                            android:id="@+id/content_settings_text_view_login"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="20dp"
+                            android:textColor="@color/colorBackBack"
+                            android:textStyle="bold"
+                            android:text="@string/app_name"/>
+                        <TextView
+                            android:id="@+id/content_settings_text_view_email"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15dp"
+                            android:text="@string/app_name"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <Button
+                    android:id="@+id/content_settings_button_change_data"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Change data"
+                    android:textColor="?attr/colorPrimary"
+                    style="@style/ButtonThemeSettings"
+                    android:textAllCaps="true"
+                    android:textStyle="bold"
+                    android:onClick="buttonsSettingsHandler"/>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginLeft="10dp">
-            <EditText
-                android:id="@+id/content_settings_edit_text_login"
-                android:layout_width="wrap_content"
+            android:layout_marginTop="15dp">
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:height="10dp"
-                android:textSize="30dp"
-                android:textStyle="bold"
-                />
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Settings"
+                    android:textColor="?attr/colorPrimary"
+                    android:layout_marginLeft="15dp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="5dp"/>
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Common"
+                    style="@style/ButtonThemeSettings"
+                    android:drawableLeft="@drawable/ic_view_list"
+                    android:drawablePadding="5dp"
+                    android:id="@+id/content_settings_button_common"
+                    android:onClick="buttonsSettingsHandler"/>
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Notifications"
+                    style="@style/ButtonThemeSettings"
+                    android:drawableLeft="@drawable/ic_bell"
+                    android:drawablePadding="5dp"
+                    android:id="@+id/content_settings_button_notifications"
+                    android:onClick="buttonsSettingsHandler"/>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
 
-            <EditText
-                android:id="@+id/content_settings_edit_text_email"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20dp"
-                android:height="10dp"
-                android:enabled="true"/>
-        </LinearLayout>
-
+        <Button
+            android:id="@+id/content_settings_button_logout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:background="@color/colorBack"
+            android:text="LOG OUT"
+            android:textColor="@color/colorDarkRed" />
     </LinearLayout>
 
-    <Button
-        android:id="@+id/content_settings_button_save_data"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_gravity="center"
-        android:enabled="true"
-        android:layout_marginTop="1dp"
-        android:textSize="10dp"
-        android:background="@color/colorBack"
-        android:text="Change data"
-        android:textColor="@color/colorBackBack" />
 
-    <Button
-        android:id="@+id/content_settings_button_change_email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:background="@color/colorBack"
-        android:text="Change email"
-        android:textColor="@color/colorBackBack"/>
-
-    <Button
-        android:id="@+id/content_settings_button_change_password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:background="@color/colorBack"
-        android:layout_marginTop="1dp"
-        android:text="Change password"
-        android:textColor="@color/colorBackBack" />
-
-    <Button
-        android:id="@+id/content_settings_button_logout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
-        android:background="@color/colorBack"
-        android:text="LOG OUT"
-        android:textColor="@color/colorBackBack" />
-
-
-</LinearLayout>
+</android.support.v4.widget.NestedScrollView>

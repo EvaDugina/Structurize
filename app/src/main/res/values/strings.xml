@@ -14,4 +14,5 @@
         ChackingEmailPassword_ChangingData
     </string>
     <string name="title_activity_change_email">ChangeEmailActivity</string>
+    <string name="title_activity_changing_data">ChangingData</string>
 </resources>

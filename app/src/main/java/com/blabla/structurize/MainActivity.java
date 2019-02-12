@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     Log.d("ds", "onImageLoadFailed: "+exception.getCause());
                 }
             });
-            builder.build().load(photoUrl).into(circleImageView);
+            builder.build().load(photoUrl).error(R.mipmap.ic_launcher).into(circleImageView);
         }
     }
 

@@ -1,5 +1,6 @@
 package com.blabla.structurize;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -32,7 +33,6 @@ public class ChangeEmailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_email);
         initComponent();
-
     }
 
     private void initComponent() {
@@ -40,7 +40,6 @@ public class ChangeEmailActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         initText();
         initButtons();
-
     }
 
     private void initText() {
@@ -98,6 +97,10 @@ public class ChangeEmailActivity extends AppCompatActivity {
                         }
                     });
         }
+
+        Intent newWind = new Intent(ChangeEmailActivity.this,ChangingData.class);
+        startActivity(newWind);
+        finish();
 
 
     }

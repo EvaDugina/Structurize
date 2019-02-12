@@ -1,5 +1,6 @@
 package com.blabla.structurize;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
@@ -91,6 +92,9 @@ public class ChangePasswordActivity extends AppCompatActivity {
                     });
         }
 
+        Intent newWind = new Intent(ChangePasswordActivity.this,ChangingData.class);
+        startActivity(newWind);
+        finish();
 
     }
 
