@@ -1,5 +1,6 @@
 package com.blabla.structurize;
 
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -43,7 +44,7 @@ public class LoginActivity extends AppCompatActivity {
         buttonSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent newWindSignUp = new Intent(LoginActivity.this,SignUpActivity.class);
+                Intent newWindSignUp = new Intent(LoginActivity.this, SignUpActivity.class);
                 startActivity(newWindSignUp);
                 finish();
             }
@@ -74,9 +75,13 @@ public class LoginActivity extends AppCompatActivity {
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        if(e instanceof com.google.firebase.auth.FirebaseAuthInvalidCredentialsException){
+                        /*if(e instanceof com.google.firebase.auth.FirebaseAuthInvalidCredentialsException){
                             textViewTextFailure.setText("Данные введены неверно");
-                        }
+                        }*/
+                        /*if(e instanceof com.google.firebase.auth.FirebaseAuthInvalidUserException){*/
+                        //}
+
+                        textViewTextFailure.setText("Данные введены неверно");
                     }
                 });
 
