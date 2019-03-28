@@ -15,11 +15,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:background="@color/colorTextButtonRegistration"
+        android:background="@color/colorBackBack"
         android:text="SETTINGS"
         android:layout_marginRight="30dp"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="20dp"
-        android:textColor="@color/colorBackBack"/>
+        android:textColor="@color/colorBack"/>
 
 </LinearLayout>

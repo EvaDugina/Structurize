@@ -62,7 +62,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="Change data"
-                    android:textColor="?attr/colorPrimary"
+                    android:textColor="@color/colorBackBack"
                     style="@style/ButtonThemeSettings"
                     android:textAllCaps="true"
                     android:textStyle="bold"
@@ -82,7 +82,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Settings"
-                    android:textColor="?attr/colorPrimary"
+                    android:textColor="@color/colorBackBack"
                     android:layout_marginLeft="15dp"
                     android:textStyle="bold"
                     android:layout_marginTop="5dp"/>
@@ -96,14 +96,61 @@
                     android:id="@+id/content_settings_button_common"
                     android:onClick="buttonsSettingsHandler"/>
                 <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Notifications"
+                style="@style/ButtonThemeSettings"
+                android:drawableLeft="@drawable/ic_bell"
+                android:drawablePadding="5dp"
+                android:id="@+id/content_settings_button_notifications"
+                android:onClick="buttonsSettingsHandler"/>
+                <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Notifications"
+                    android:text="Reset"
                     style="@style/ButtonThemeSettings"
-                    android:drawableLeft="@drawable/ic_bell"
+                    android:drawableLeft="@drawable/ic_account_convert"
                     android:drawablePadding="5dp"
-                    android:id="@+id/content_settings_button_notifications"
+                    android:id="@+id/content_settings_button_reset"
                     android:onClick="buttonsSettingsHandler"/>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="About"
+                    android:textColor="@color/colorBackBack"
+                    android:layout_marginLeft="15dp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="5dp"/>
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/content_settings_button_about_us"
+                    android:drawablePadding="5dp"
+                    android:onClick="buttonsAboutUs"
+                    style="@style/ButtonThemeSettings"
+                    android:text="About us"
+                    android:drawableLeft="@drawable/ic_account_box_multiple"/>
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/content_settings_button_write_author"
+                    android:drawablePadding="5dp"
+                    android:onClick="buttonsWriteAuthor"
+                    style="@style/ButtonThemeSettings"
+                    android:text="Write author"
+                    android:drawableLeft="@drawable/ic_send"/>
+
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
