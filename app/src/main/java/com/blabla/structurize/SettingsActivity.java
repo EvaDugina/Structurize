@@ -156,6 +156,14 @@ public class SettingsActivity extends AppCompatActivity {
                 break;
             case R.id.content_settings_button_notifications:
                 break;
+            case R.id.content_settings_button_reset:
+                break;
+            case R.id.content_settings_button_about_us:
+                break;
+            case R.id.content_settings_button_write_author:
+                break;
+            case R.id.content_settings_button_logout:
+                break;
         }
 
         Intent intent = new Intent(this, aClass);
