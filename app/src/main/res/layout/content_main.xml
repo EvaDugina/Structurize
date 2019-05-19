@@ -17,9 +17,18 @@
         android:layout_gravity="center_horizontal"
         android:background="@color/colorBackBack"
         android:text="SETTINGS"
-        android:layout_marginRight="30dp"
-        android:layout_marginLeft="30dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="20dp"
         android:textColor="@color/colorBack"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/content_main_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp">
+    </android.support.v7.widget.RecyclerView>
 
 </LinearLayout>

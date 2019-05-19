@@ -46,7 +46,6 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent newWindSignUp = new Intent(LoginActivity.this, SignUpActivity.class);
                 startActivity(newWindSignUp);
-                finish();
             }
         });
 

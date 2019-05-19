@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".ChangingData"
+    android:orientation="vertical"
+    android:background="@color/colorTextButtonRegistration"
+    tools:showIn="@layout/activity_changing_data">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorBack">
+
+        <EditText
+            android:id="@+id/content_changing_data_edit_text_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/content_changing_data_button_change_login"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="change login"
+            android:background="@color/colorBack"
+            android:textColor="@color/colorBackBack"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/content_changing_data_button_change_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorBack"
+        android:text="Change email"
+        android:textColor="@color/colorBackBack"/>
+
+
+    <Button
+        android:id="@+id/content_changing_data_button_change_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/colorBack"
+        android:layout_marginTop="1dp"
+        android:text="Change password"
+        android:textColor="@color/colorBackBack" />
+
+</LinearLayout>

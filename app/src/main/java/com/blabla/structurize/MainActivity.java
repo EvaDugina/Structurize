@@ -3,9 +3,11 @@ package com.blabla.structurize;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -13,6 +15,8 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
@@ -20,19 +24,31 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.blabla.structurize.TaskPackage.TaskAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.squareup.picasso.Picasso;
+import com.wangjie.androidbucket.utils.ABTextUtil;
+import com.wangjie.rapidfloatingactionbutton.RapidFloatingActionButton;
+import com.wangjie.rapidfloatingactionbutton.RapidFloatingActionHelper;
+import com.wangjie.rapidfloatingactionbutton.RapidFloatingActionLayout;
+import com.wangjie.rapidfloatingactionbutton.contentimpl.labellist.RFACLabelItem;
+import com.wangjie.rapidfloatingactionbutton.contentimpl.labellist.RapidFloatingActionContentLabelList;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, RapidFloatingActionContentLabelList.OnRapidFloatingActionContentLabelListListener{
     private static final int REQUEST_PERMISSION_READ_EXTERNAL_STORAGE = 1;
     private FirebaseAuth mAuth;
     private NavigationView navigationView;
     private CircleImageView circleImageView;
     private FirebaseUser currentUser;
+    private RapidFloatingActionHelper rfabHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +73,51 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void initComponents() {
         initButton();
         initNavigationPanel();
+        //initFAB();
+        initRFAB();
     }
+
+    private void initRFAB() {
+        RapidFloatingActionContentLabelList rfaContent = new RapidFloatingActionContentLabelList(getApplicationContext());
+
+        rfaContent.setOnRapidFloatingActionContentLabelListListener(this);
+        List<RFACLabelItem> items = new ArrayList<>();
+        items.add(new RFACLabelItem<Integer>()
+                .setLabel("Add Task")
+                .setIconNormalColor(Color.MAGENTA)
+                .setWrapper(0)
+        );
+        items.add(new RFACLabelItem<Integer>()
+                .setLabel("Add Category")
+                .setIconNormalColor(Color.CYAN)
+                .setWrapper(0)
+        );
+
+        rfaContent
+                .setItems(items)
+                .setIconShadowRadius(ABTextUtil.dip2px(getApplicationContext(), 5))
+                .setIconShadowColor(0xff888888)
+                .setIconShadowDy(ABTextUtil.dip2px(getApplicationContext(), 5))
+        ;
+        rfabHelper = new RapidFloatingActionHelper(
+                getApplicationContext(),
+                (RapidFloatingActionLayout) findViewById(R.id.activity_main_rfal),
+                (RapidFloatingActionButton) findViewById(R.id.activity_main_rfab),
+                rfaContent
+        ).build();
+    }
+
+    /*private void initFAB() {
+        FloatingActionButton floatingActionButtonn = findViewById(R.id.app_bar_main_fab);
+        floatingActionButtonn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,AddTaskActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+*/
 
     private void initNavigationPanel() {
         currentUser = mAuth.getCurrentUser();
@@ -94,6 +154,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onResume();
         if(ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)
             setImage();
+        final TaskAdapter taskAdapter = new TaskAdapter(this);
+        RecyclerView recyclerView = findViewById(R.id.content_main_recycler_view);
+        recyclerView.setAdapter(taskAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        
     }
 
     private void initButton() {
@@ -165,4 +230,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 setImage();
         }
     }
+
+    @Override
+    public void onRFACItemLabelClick(int i, RFACLabelItem rfacLabelItem) {
+        rfabHelper.toggleContent();
+        Intent intent = null;
+        switch (i){
+            case 0:
+                intent = new Intent(MainActivity.this,AddTaskActivity.class);
+                break;
+            case 1:
+                intent = new Intent(MainActivity.this,AddCategoryActivity.class);
+                break;
+        }
+        startActivity(intent);
+    }
+
+    @Override
+    public void onRFACItemIconClick(int i, RFACLabelItem rfacLabelItem) {
+        rfabHelper.toggleContent();
+        Toast.makeText(MainActivity.this, "clicked label: " + i, Toast.LENGTH_SHORT).show();
+    }
+
 }

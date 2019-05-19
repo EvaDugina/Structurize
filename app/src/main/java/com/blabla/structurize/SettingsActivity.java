@@ -147,7 +147,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     public void buttonsSettingsHandler(View view) {
         int id = view.getId();
-        Class aClass = null;
+        Class aClass = SettingsActivity.class;
         switch (id){
             case R.id.content_settings_button_change_data:
                 aClass = ChangingData.class;

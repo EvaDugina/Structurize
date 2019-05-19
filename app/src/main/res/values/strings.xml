@@ -15,4 +15,7 @@
     </string>
     <string name="title_activity_change_email">ChangeEmailActivity</string>
     <string name="title_activity_changing_data">ChangingData</string>
+    <string name="title_activity_task">TaskActivity</string>
+    <string name="title_activity_add_task">AddTaskActivity</string>
+    <string name="title_activity_add_category">AddCategoryActivity</string>
 </resources>
